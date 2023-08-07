@@ -20,9 +20,9 @@ use App\Http\Controllers\PostsController;
 // Authentication Routes
 Route::get('/', [AuthController::class, 'index'])->name('login');
 Route::get('dashboard', [AuthController::class, 'dashboard'])->name('dashboard')->middleware('auth'); 
-Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::get('login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('custom-login', [AuthController::class, 'customLogin'])->name('login.custom'); 
-Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
+Route::get('registration', [AuthController::class, 'registration'])->name('register-user')->middleware('guest');
 Route::post('user-registration', [AuthController::class, 'userRegistration'])->name('register.user'); 
 Route::get('logOut', [AuthController::class, 'logOut'])->name('logOut');
 
