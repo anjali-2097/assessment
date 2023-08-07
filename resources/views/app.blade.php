@@ -23,7 +23,7 @@
                   <span class="navbar-text font-bold uppercase mr-3">
                      Welcome {{auth()->user()->name}}
                    </span>
-                   <a href="{{ route('dashboard') }}" class="btn btn-secondary btn active mr-3" role="button" aria-pressed="true">Manage Posts</a>                
+                   <a href="{{ route('manage-post') }}" class="btn btn-secondary btn active mr-3" role="button" aria-pressed="true">Manage Posts</a>                
                    <a href="{{ route('logOut') }}" class="btn btn-secondary btn active mr-3" role="button" aria-pressed="true">Logout</a>                
 
                 @else
