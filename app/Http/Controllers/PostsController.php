@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -12,7 +13,7 @@ class PostsController extends Controller
 {
     public function managePost()
     {
-        $allposts = Post::where('user_id', '=', Auth::user()->id)->get();
+        $allposts = Post::all();
         return view('posts.show',['posts'=>$allposts]);
     }
 
@@ -36,4 +37,20 @@ class PostsController extends Controller
         return redirect('manage-post')->withSuccess('Post created successfully!');
 
     }
+
+    public function viewPost($postid)
+    {
+        $post = Post::where('id', $postid)->first();
+        
+        $user = User::where('id', $post->user_id)->first();
+        $post['username'] = $user->name;
+        return view('posts.view',['post'=>$post]);
+    }
+
+    public function deletePost($postid)
+    {
+        Post::where('id', $postid)->firstorfail()->delete();
+        return redirect()->to('manage-post'); 
+    }
+
 }

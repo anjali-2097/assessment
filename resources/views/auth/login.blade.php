@@ -10,30 +10,23 @@
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Email" id="email" class="form-control" name="email" required
+                                <input type="text" placeholder="Email" id="email" class="form-control" name="email"
                                     autofocus>
                                 @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input type="password" placeholder="Password" id="password" class="form-control" name="password" required>
+                                <input type="password" placeholder="Password" id="password" class="form-control" name="password">
                                 @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
-                            </div>
-                            <div class="form-group mb-3">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
                             </div>
                             <div class="d-grid mx-auto mb-3">
                                 <button type="submit" class="btn btn-dark btn-block">Signin</button>
                             </div>
                             <div class="d-grid mx-auto text-center">
-                                <a class="" href="{{ route('register-user') }}">Register Here</a>
+                                <a href="{{ route('register-user') }}">Register Here</a>
                             </div>
                         </form>
                     </div>

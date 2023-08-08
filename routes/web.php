@@ -29,7 +29,10 @@ Route::get('logOut', [AuthController::class, 'logOut'])->name('logOut');
 //Posts Routes
 Route::get('manage-post', [PostsController::class, 'managePost'])->name('manage-post')->middleware('auth'); 
 Route::get('create-post', [PostsController::class, 'createPost'])->name('create-post')->middleware('auth'); 
-Route::post('store-post', [PostsController::class, 'storePost'])->name('store-post')->middleware('auth'); 
+Route::post('store-post', [PostsController::class, 'storePost'])->name('store-post')->middleware('auth');
+Route::get('view-post/{post}', [PostsController::class, 'viewPost'])->name('view-post')->middleware('auth'); 
+Route::delete('delete-post/{post}', [PostsController::class, 'deletePost'])->name('delete-post')->middleware('auth'); 
+
 
 
 
