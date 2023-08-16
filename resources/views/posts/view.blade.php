@@ -4,7 +4,7 @@
     <div class="cotainer">
         <div class="card text-center">
             <div class="card-header">
-              Posted By: @if(auth()->user()->name==$post->username) You @else {{$post->username}} @endif
+              Posted By: @auth @if(auth()->user()->name==$post->username) You @else {{$post->username}} @endif @endauth @guest {{$post->username}} @endguest
             </div>
             <div class="card-body">
               <h5 class="card-title">{{$post->title}}</h5>
